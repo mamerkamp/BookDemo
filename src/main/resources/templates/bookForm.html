@@ -9,9 +9,14 @@
     <h1>Create a new book</h1>
     <form th:action="@{/books/add}" th:object="${book}" method="post">
         <p>Title: <input type="text" th:field="*{title}" /></p>
+        <p>
+            Author:
+            <select th:field="*{author}">
+                <option th:each="author: ${allAuthors}" th:value="${author.authorID}" th:text="${author.name}">
+                </option>
+            </select>
+        </p>
         <p><input type="submit" value="Submit" /></p>
-
     </form>
-
 </body>
 </html>
