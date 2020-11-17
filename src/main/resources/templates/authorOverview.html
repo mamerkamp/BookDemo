@@ -15,7 +15,7 @@
         <th># of books</th>
     </tr>
     <tr th:each="author: ${allAuthors}">
-        <td th:text="${author.authorID}" />
+        <td th:text="${author.authorId}" />
         <td th:text="${author.name}" />
         <td th:text="${author.numberOfBooks}" />
         <td></td>
@@ -30,6 +30,10 @@
     <p><input type="submit" value="Submit" /></p>
 
 </form>
+
+<p>
+    <a th:href="@{/books}">Book overview</a>
+</p>
 
 </body>
 </html>

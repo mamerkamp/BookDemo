@@ -12,7 +12,7 @@
         <p>
             Author:
             <select th:field="*{author}">
-                <option th:each="author: ${allAuthors}" th:value="${author.authorID}" th:text="${author.name}">
+                <option th:each="author: ${allAuthors}" th:value="${author.authorId}" th:text="${author.name}">
                 </option>
             </select>
         </p>

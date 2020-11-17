@@ -1,15 +1,13 @@
 package nl.miwgroningen.cohort4.mark.demo.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * Author: Mark Amerkamp (markamerkamp@gmail.com)
  *Info over de auteur
  */
+@Entity
 public class Author {
 
     @Id
