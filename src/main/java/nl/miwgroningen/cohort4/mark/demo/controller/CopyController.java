@@ -36,4 +36,15 @@ public class CopyController {
         }
         return "redirect:/books";
     }
+    // Om een copy te removen.
+//    @GetMapping("copy/remove/{bookId}")
+//    protected String addCopy(@PathVariable("bookId") Integer bookId) {
+//        Optional<Book> bookBoox = bookRepository.findById(bookId);
+//        if (bookBoox.isPresent()) {
+//            Copy copy = new Copy();
+//            copy.setBook(bookBoox.get());
+//            copyRepository.save(copy);
+//        }
+//        return "redirect:/books";
+//    }
 }
