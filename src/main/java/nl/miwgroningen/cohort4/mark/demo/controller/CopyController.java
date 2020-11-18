@@ -47,4 +47,16 @@ public class CopyController {
 //        }
 //        return "redirect:/books";
 //    }
+    @GetMapping("/copy/add/t/{bookTitle}")
+    protected String addCopyByTitle(@PathVariable("bookTitle") String bookTitle) {
+        //Optional omdat het niet zeker is dat er een boek te vinden is.
+        Optional<Book> bookBoox = bookRepository.findByTitle(bookTitle);
+        if (bookBoox.isPresent()) {
+            Copy copy = new Copy();
+            copy.setBook(bookBoox.get());
+            copyRepository.save(copy);
+        }
+        return "redirect:/books";
+    }
+
 }
