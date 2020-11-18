@@ -9,7 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Optional;
 
 /**
  * Author: Mark Amerkamp (markamerkamp@gmail.com)
@@ -37,6 +40,16 @@ public class BookController {
         model.addAttribute("book", new Book());
         model.addAttribute("allAuthors", authorRepository.findAll());
         return "bookForm";
+    }
+
+    @GetMapping("book/{bookTitle}")
+    protected String showBookDetails(Model model, @PathVariable("bookTitle") String bookTitle) {
+        Optional<Book> bookBox = bookRepository.findByTitle(bookTitle);
+        if(bookBox.isEmpty()) {
+            return "redirect:/books";
+        }
+        model.addAttribute("book", bookBox.get());
+        return "bookDetails";
     }
 
     @PostMapping("/books/add")
